@@ -1,0 +1,284 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.1'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      9630,        216]*)
+(*NotebookOutlinePosition[     10323,        240]*)
+(*  CellTagsIndexPosition[     10279,        236]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[{
+    \(getPropFmat[idm_] := 
+      Module[\[IndentingNewLine]{Imt, Wmt}, 
+        Imt = IdentityMatrix[idm]; \[IndentingNewLine]Wmt = 
+          1/2*\((RotateLeft[Imt] + 
+                RotateRight[Imt])\); \[IndentingNewLine]Factor[
+          Inverse[Imt - a*Wmt]*\((1 - 
+                a)\)]\[IndentingNewLine]]\n\), "\[IndentingNewLine]", 
+    \(turnOnNums[ilt_, lng_] := 
+      Module[\[IndentingNewLine]{zrs}, \[IndentingNewLine]zrs = 
+          PadLeft[{0}, lng]; \[IndentingNewLine]zrs[\([\)\(ilt\)\(]\)] = 
+          1; \[IndentingNewLine]zrs\[IndentingNewLine]]\[IndentingNewLine]\), \
+"\[IndentingNewLine]", 
+    \(turnOnSel[lng_, \ nsl_]\  := \(\((turnOnNums[#, lng])\) &\) /@ 
+        Subsets[Range[lng], {nsl}]\), "\n", 
+    \(allpropmat[lng_, \ nsl_]\  := \ 
+      Factor[getPropFmat[lng] . 
+          Transpose[\(\((turnOnNums[#, lng])\) &\) /@ 
+              Subsets[Range[lng], {nsl}]]]\)}], "Input",
+  CellChangeTimes -> {3.616987535002059*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(getPropFmat[5]\), "\[IndentingNewLine]", 
+    \(turnOnSel[5, 3]\), "\[IndentingNewLine]", 
+    \(allpropmat[5, 3]\)}], "Input",
+  CellChangeTimes -> {{3.616987257370832*^9, 3.6169872633058968`*^9}}],
+
+Cell[BoxData[
+    \({{\(\(-4\) + 2\ a + a\^2\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + \
+a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\)}, {\(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(\(-4\) + 2\ a \
++ a\^2\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a \
++ a\^2\), \(-\(a\^2\/\(\(-4\) - 2\ a + a\^2\)\)\), \(-\(a\^2\/\(\(-4\) - 
+                2\ a + a\^2\)\)\)}, {\(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\(-4\) + 2\ a + a\^2\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + \
+a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\)}, {\(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(-\(a\^2\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\(-4\) + 2\ a + a\^2\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + \
+a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\)}, {\(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(-\(a\^2\/\(\(-4\) - 2\ a + a\^2\)\)\), \(-\(a\^2\/\(\(-4\) - 
+                2\ a + a\^2\)\)\), \(\((\(-2\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\(-4\) + 2\ a + a\^2\)\/\(\(-4\) - 2\ a + a\^2\)}}\)], "Output"],
+
+Cell[BoxData[
+    \({{1, 1, 1, 0, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 1}, {1, 0, 1, 1, 
+        0}, {1, 0, 1, 0, 1}, {1, 0, 0, 1, 1}, {0, 1, 1, 1, 0}, {0, 1, 1, 0, 
+        1}, {0, 1, 0, 1, 1}, {0, 0, 1, 1, 1}}\)], "Output"],
+
+Cell[BoxData[
+    \({{\(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\(-4\) - 2\ a \
++ 3\ a\^2\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(\(4 - 2\ a + a\^2\)\/\(\(-4\) - 
+                2\ a + a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + \
+a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) \
+- 2\ a + a\^2\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(\(a\ \((2 + 
+                    a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\)}, {\(\(-4\) - 2\ a + 3\ a\^2\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-4\) + a)\
+\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(-\(\(4 - 2\ a + a\^2\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\)}, {\(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\
+\ a + a\^2\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(\(a\ \
+\((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(-\(\(4 - 2\ a + a\^2\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\(-4\) - 2\ a + 3\ a\^2\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + \
+a)\)\)\/\(\(-4\) - 2\ a + a\^2\)}, {\(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 
+                2\ a + a\^2\)\)\), \(-\(\(4 - 2\ a + a\^2\)\/\(\(-4\) - 
+                2\ a + a\^2\)\)\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+                
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + \
+a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + \
+a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\(-4\) \
+- 2\ a + 3\ a\^2\)\/\(\(-4\) - 2\ a + a\^2\)}, {\(-\(\(a\ \((2 + 
+                    a)\)\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + \
+a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + \
+a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\(-4\) - 2\ a + 3\ a\^2\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\)\)\), \(-\(\(4 - 
+                2\ a + a\^2\)\/\(\(-4\) - 2\ a + 
+                a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ \
+a + a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\)}}\)], \
+"Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(firstNodePropAll5\  = \ \(allpropmat[5, 
+          3]\)[\([1]\)]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)
+    \)\)], "Input",
+  CellChangeTimes -> {{3.6169870832151613`*^9, 3.616987083375083*^9}}],
+
+Cell[BoxData[
+    \({\(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\((\(-2\
+\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \(\(-4\) - 2\ a + 3\ a\^2\
+\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(\(4 - 2\ a + a\^2\)\/\(\(-4\) - 2\ a + 
+              a\^2\)\)\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a \
++ a\^2\), \(\((\(-2\) + a)\)\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(-\(\(a\ \((2 + a)\)\)\/\(\(-4\) - 2\ a + 
+              a\^2\)\)\), \(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \
+\(\((\(-4\) + a)\)\ a\)\/\(\(-4\) - 2\ a + a\^2\), \(-\(\(a\ \((2 + 
+                  a)\)\)\/\(\(-4\) - 2\ a + a\^2\)\)\)}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\(Factor[
+      Mean[firstNodePropAll5]]\)\(\[IndentingNewLine]\)\(\[IndentingNewLine]\)\
+
+    \)\)], "Input"],
+
+Cell[BoxData[
+    \(3\/5\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Factor[StandardDeviation[firstNodePropAll5]]\)], "Input"],
+
+Cell[BoxData[
+    \(2\ \@\(2\/15\)\ \@\(\(8 - 12\ a + 3\ a\^2 - 2\ a\^3 + 3\ a\^4\)\/\(16 + \
+16\ a - 4\ a\^2 - 4\ a\^3 + a\^4\)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Factor[8 - 12\ a + 3\ a\^2 - 2\ a\^3 + 3\ a\^4]\)], "Input"],
+
+Cell[BoxData[
+    \(\((\(-1\) + a)\)\^2\ \((8 + 4\ a + 3\ a\^2)\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Factor[16 + 16\ a - 4\ a\^2 - 4\ a\^3 + a\^4]\)], "Input"],
+
+Cell[BoxData[
+    \(\((\(-4\) - 2\ a + a\^2)\)\^2\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.1 for Macintosh",
+ScreenRectangle->{{0, 1920}, {0, 970}},
+WindowToolbars->{},
+WindowSize->{1040, 752},
+WindowMargins->{{373, Automatic}, {Automatic, -5}},
+StyleDefinitions -> "Default.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 978, 19, 251, "Input"],
+
+Cell[CellGroupData[{
+Cell[2757, 74, 219, 4, 59, "Input"],
+Cell[2979, 80, 1380, 19, 193, "Output"],
+Cell[4362, 101, 222, 3, 43, "Output"],
+Cell[4587, 106, 3249, 47, 267, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7873, 158, 227, 4, 59, "Input"],
+Cell[8103, 164, 660, 9, 79, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8800, 178, 132, 4, 59, "Input"],
+Cell[8935, 184, 38, 1, 42, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9010, 190, 77, 1, 27, "Input"],
+Cell[9090, 193, 144, 2, 51, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9271, 200, 80, 1, 31, "Input"],
+Cell[9354, 203, 79, 1, 29, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[9470, 209, 78, 1, 31, "Input"],
+Cell[9551, 212, 63, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
